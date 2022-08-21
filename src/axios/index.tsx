@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const AxiosClient = axios.create({
-  baseURL: 'http://localhost:3001/',
+  baseURL: process.env.BACKEND_URL,
   timeout: 1000,
   headers: {
     'Accept': 'application/x-www-form-urlencoded' 
