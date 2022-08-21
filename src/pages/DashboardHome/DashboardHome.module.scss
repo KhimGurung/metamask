@@ -1,0 +1,48 @@
+@use '../../styles/abstracts' as *;
+
+.cards{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  @include respond($sm){
+    grid-template-columns: 1fr 1fr;
+  }
+  @include respond($lg){
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .summary_card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h2{
+      @include text-5xl;
+    }
+    p{
+      color: $text-light;
+    }
+    svg{
+      font-size: 2rem;
+      color: $text-light;
+    }
+  }
+}
+
+.bar_chart{
+  flex-wrap: wrap;
+  flex-direction: column;
+  @include respond($md){
+    flex-direction: row;
+  }
+  >div{
+    overflow: auto;
+    width: 100%;
+    @include respond($md){
+      flex: 1;
+    }
+  }
+  div:last-of-type{
+    @include respond($md){
+      flex: 1;
+    }
+  }
+}

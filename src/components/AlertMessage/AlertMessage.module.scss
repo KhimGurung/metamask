@@ -1,0 +1,49 @@
+@use '../../styles//abstracts/' as *;
+
+.alert_container{
+    background-color: #f8d7da;
+    position: absolute;
+    width: 50vw;
+    min-width: 300px;
+    left: 0;
+    right: 0;
+    top: 0.4rem;
+    margin: auto;
+    min-height: 4rem;
+    padding-inline: 1rem;
+    padding-block: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.4rem;
+    border-color: #f5c6cb;
+    .message_container{
+        display: flex;
+        align-items: center;
+        .icon_container{
+            background-color: #e44f2f;
+            padding: 0.3rem;
+            border-radius: 0.9rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.7rem;
+            svg{
+                font-size: 1.6rem;
+                color: white;
+            }
+        }
+        p{
+            color: #721c24;
+        }
+    }
+
+    svg{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

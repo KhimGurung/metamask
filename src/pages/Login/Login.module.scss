@@ -1,0 +1,79 @@
+@use '../../styles/abstracts' as *;
+
+.login_container{
+    background-color: $background-light;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .form_container{
+        background-color: $background-white;
+        padding: 1rem;
+        border-radius: 0.7rem;
+        height: auto;
+        width: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0px 0px 3px #e1e1e1;
+
+        .metamask_btn{
+            background-color: #f6871c;
+            padding-inline: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            min-width: 70%;
+            h4{
+                color: white;
+                font-weight: 500 !important;
+            }
+        }
+        hr{
+            width: 100%;
+            border-color: $background-light;
+            border-width: 1.5px;
+            border-left: none;
+            border-top: none;
+            margin-bottom: 1rem;
+        }
+        p{
+            @include text-sm;
+            color: $text-light;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        section{
+            width: 100%;
+            margin-bottom: 1rem;
+            label{
+                color: $text-light;
+                display: inline-block;
+                margin-bottom: 0.2rem;
+            }
+            input[type=text],
+            input[type=password]{
+                border: 1px solid #d6d6d6 !important;
+                width: 100% !important;
+                height: 2.5rem !important;
+                border-radius: 0.3rem;
+            }
+        }
+        .loginbtn_section{
+            display: flex;
+            margin-top: 2rem;
+            justify-content: flex-end;
+            p{
+                text-decoration: underline;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            button{
+                margin-left: 1rem;
+                height: 2.7rem;
+                font-size: small;
+            }
+        }
+    }
+}

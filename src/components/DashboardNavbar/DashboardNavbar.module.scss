@@ -1,0 +1,28 @@
+@use '../../styles/abstracts/' as *;
+
+.dashboard_navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: $navbar-z-index;
+    border-bottom: solid 1px $background-light;
+
+    .navbar_icon{
+        color: $text-light;
+        font-size: 1.3rem;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    .left_icons{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        img{
+            height: 2.5rem;
+            width: 2.5rem;
+            border-radius: 1.25rem;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+@use '../../styles/abstracts' as *;
+
+.dashboard_header{
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+
+    @include respond($md){
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .right_controls{
+        display: flex;
+        gap: 1.3rem;
+        margin-top: 2rem;
+
+        @include respond($md){
+            margin-top: 0rem;
+        }
+    }
+}

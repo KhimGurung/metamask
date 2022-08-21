@@ -1,0 +1,87 @@
+@use './colors' as *;
+@use './breakpoints' as *;
+
+@mixin respond($breakpoint) {
+    @media only screen and (min-width: $breakpoint) { @content; }
+}
+
+@mixin shadow{
+    -webkit-box-shadow: 2px 2px 2px 0px rgba($color: $background-dark, $alpha: 0.1); 
+    box-shadow: 2px 2px 2px 0px rgba($color: $background-dark, $alpha: 0.1);
+}
+
+@mixin text-xs	{
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+@mixin text-sm	{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+@mixin text-base {	
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+@mixin text-lg {	
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+@mixin text-xl	{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+@mixin text-2xl {	
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+@mixin text-3xl	{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+@mixin text-4xl	{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
+@mixin text-5xl	{
+    font-size: 3rem;
+    line-height: 1;
+}
+
+@mixin text-input{
+    height: 3rem !important;
+    border: 1px solid;
+    border-radius: 0.4rem !important;
+    border-color: #cbd5e1 !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 18rem;
+    &:focus{
+        border-color: $primary !important;
+    }
+    svg{
+        font-size: 1.2rem;
+        color: $text-input;
+    }
+    
+}
+
+@mixin primary-btn{
+    background-color: $primary;
+    label{
+        color: $text-white !important;
+        margin-bottom: 0rem !important;
+    }
+
+    svg{
+        color: $text-white;
+    }
+}
+
+@mixin text-ellipsis{
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}

@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./styles/globals.scss"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DashboardHome from './pages/DashboardHome';
+import AlertMessage from "./components/AlertMessage";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App:React.FC = () => {
+  const { showAlert, message } = useSelector((state: RootState) => state.alert);
+
+  return   <BrowserRouter>
+            {
+              showAlert &&
+                <AlertMessage message={ message } />
+            }
+            <Routes>
+              <Route  path="/" element={<Login />} />
+              <Route  path="/register" element={<Register />} />
+              <Route  element={ <ProtectedRoute />}>
+                <Route path="/dashboard" element={ <DashboardHome /> } />
+              </Route>
+            </Routes>
+          </BrowserRouter>;
 }
 
 export default App;

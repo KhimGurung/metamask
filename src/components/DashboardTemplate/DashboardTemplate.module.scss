@@ -1,0 +1,88 @@
+@use '../../styles/abstracts' as *;
+
+.dashboard_template{
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+
+    #toggle_sidebar:checked + .sidebar_overlay{
+        z-index: $overlay-z-index;
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out, z-index ease-in-out !important;
+    }
+
+    .sidebar_overlay{
+        position: absolute;
+        height: 100vh;
+        width: 100vw;    
+        background-color: rgba($color: black, $alpha: 0.5);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out, z-index ease-in-out 0.3s;
+        @include respond($lg){
+            display: none;
+        }
+    }
+
+    #toggle_sidebar:checked ~ .dashboard_sidebar{
+        margin-left: 0rem;
+        height: 100vh;
+        @include respond($lg){
+            margin-left: -17rem;
+        }
+    }
+
+    .dashboard_sidebar{
+        position: absolute;
+        min-height: 100vh;
+        width: 17rem;
+        padding: 1rem;
+        background-color: $background-white;
+        color: $text-white;
+        margin-left: -17rem;
+        transition: left 0.3s ease-in-out, 
+                    margin-left 0.3s ease-in-out;
+        z-index: $sidebar-z-index;
+        overflow-y: scroll;
+        border-right: solid 1px $background-light;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 0.5rem;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba($color: $text-light, $alpha: 0.4) ;
+            border-radius: 0.5rem;
+        }
+        
+        @include respond($lg){
+            position: static;
+            margin-left: 0rem;
+        }
+
+    }
+    .dashboard_content{
+        flex: 1;
+        height: 100vh;
+        overflow-y: scroll;
+        background-color: $background-white;
+        display: flex;
+        flex-direction: column;
+        .navbar{
+            min-height: 4rem;
+            position: sticky;
+            top: 0;
+        }
+        .dashboard_body{
+            flex: 1;
+            background-color: $background-light;
+            padding-bottom: 1.5rem;
+        }
+        .dashboard_footer{
+            padding-top: 1.3rem;
+            padding-bottom: 1.3rem;
+            background-color: $background-light;
+            border-top: solid 1px rgba($color: $text-light, $alpha: 0.1);
+        }
+    }
+}

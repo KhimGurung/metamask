@@ -1,0 +1,65 @@
+@use '../../styles/abstracts' as *;
+
+
+.dashboard_user_profile{
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    img{
+        height: 6rem;
+        width: 6rem;
+        border-radius: 3rem;
+    }
+    h4{
+        margin-top: 1rem;
+        color: $text-dark;
+    }
+
+    p{
+        color: $text-light;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.dashboard_menu{
+    .sidebar_title{
+        padding-left: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        h4{
+            margin-top: 1rem;
+            color: #818cf8;
+        }
+    
+        p{
+            @include text-xs;
+            color: $text-light;
+        }
+    }
+    ul{
+        list-style: none;
+        li{
+            font-size: 13px;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            height: 2.5rem;
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            border-radius: 0.4rem;
+            font-weight: 500;
+            color: $text-light;
+
+            &:hover{
+                background-color: rgba($color: gray, $alpha: 0.3);
+                cursor: pointer;
+            }
+
+            .menu_icon{
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
