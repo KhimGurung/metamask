@@ -30,10 +30,10 @@ const AlertMessage: React.FC<AlertMessageProps> = ({ message }) => {
                     <BiError />
                 </div>
                 <div>
-                    {
-                        typeof message === "string"
-                        ?   <p>{ message }</p>
-                        :  (message as Array<string>).map((item, index) => <p key={ index }>{item}</p>)
+                    {   message &&
+                            typeof message === "string"
+                            ?   <p>{ message }</p>
+                            :  (message as Array<string>).map((item, index) => <p key={ index }>{item}</p>)
                     }
                 </div>
             </div>
