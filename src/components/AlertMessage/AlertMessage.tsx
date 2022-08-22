@@ -10,7 +10,7 @@ interface AlertMessageProps{
     message?: string | Array<string>;
 }
 
-const AlertMessage: React.FC<AlertMessageProps> = ({ message }) => {
+const AlertMessage: React.FC<AlertMessageProps> = ({ message = "" }) => {
     console.log(message)
     console.log(typeof message)
     const dispatch = useDispatch<AppDispatch>();
@@ -30,10 +30,10 @@ const AlertMessage: React.FC<AlertMessageProps> = ({ message }) => {
                     <BiError />
                 </div>
                 <div>
-                    {   message &&
-                            typeof message === "string"
-                            ?   <p>{ message }</p>
-                            :  (message as Array<string>).map((item, index) => <p key={ index }>{item}</p>)
+                    {   
+                        typeof message === "string"
+                        ?   <p>{ message }</p>
+                        :  (message as Array<string>).map((item, index) => <p key={ index }>{item}</p>)
                     }
                 </div>
             </div>
