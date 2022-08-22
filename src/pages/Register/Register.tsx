@@ -12,8 +12,6 @@ const Register: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const provider  = useDetectProvider();
     const { isLoading, isLoggedIn } = useSelector((state: RootState) => state.user);
-    const { showAlert } = useSelector((state: RootState) => state.alert);
-
 
     const preConditionCheck = () => {
         if(provider)
@@ -22,7 +20,7 @@ const Register: React.FC = () => {
             dispatch(toggleAlert("Install metamask and try again."));
     }
 
-    const registerUser = () => {
+    const handleRegister = () => {
         alert("This is demo for the metamask login. So, this registration form is not functional.")
     }
 
@@ -58,7 +56,7 @@ const Register: React.FC = () => {
                         <Link to='/'>
                             <p>I already have an account.</p>
                         </Link>
-                        <button onClick={ registerUser } type='submit'>REGISTER</button>
+                        <button onClick={ handleRegister } type='submit'>REGISTER</button>
                     </section>
                 </form>
             </div>

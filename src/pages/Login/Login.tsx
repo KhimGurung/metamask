@@ -20,7 +20,7 @@ const Login: React.FC = () => {
             dispatch(toggleAlert("Install metamask and try again."))
     }
 
-    const loginUser = () => {
+    const handleLogin = () => {
         alert("This is demo for the metamask login. So, this login form is not functional.")
     }
 
@@ -53,7 +53,7 @@ const Login: React.FC = () => {
                     <Link to="register">
                         <p>You dont have an account?</p>
                     </Link>
-                    <button onClick={ loginUser }>LOG IN</button>
+                    <button onClick={ handleLogin }>LOG IN</button>
                 </section>
             </div>
         </section>
