@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const AxiosClient = axios.create({
-  baseURL: process.env.BACKEND_URL,
+  baseURL: 'https://khim-nodejs.herokuapp.com/',
   headers: {
     'Accept': 'application/x-www-form-urlencoded' 
     }
