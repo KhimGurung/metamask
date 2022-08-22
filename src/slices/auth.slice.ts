@@ -21,7 +21,7 @@ export const loginUser = createAsyncThunk(
                 publicAddress : account
             });
             if(!data.success){
-                thunk.dispatch(toggleAlert(data.message))
+                thunk.dispatch(toggleAlert(`${data.message} data fetch not success`))
                 return thunk.rejectWithValue(data.message)
             }
             const signature = await signMessage(data.data.username, data.data.nonce);
@@ -32,12 +32,12 @@ export const loginUser = createAsyncThunk(
                 localStorage.setItem("refreshToken", userStatus.data.data.accessToken);
                 return account;
             }
-            thunk.dispatch(toggleAlert(userStatus.data.message))
+            thunk.dispatch(toggleAlert(`${userStatus.data.message} success`))
             return thunk.rejectWithValue(userStatus.data.message);
         } catch (error: any) {
-            
+            console.log("error is here", error)
             const message = error.code === 4001 ? error.message : "Something unexpected happen.";
-            thunk.dispatch(toggleAlert(message));
+            thunk.dispatch(toggleAlert(`${message} error is here`));
             return thunk.rejectWithValue("error");
         }
     }
