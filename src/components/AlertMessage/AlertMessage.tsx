@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BiError } from 'react-icons/bi';
 import { RiCloseLine } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
@@ -11,6 +11,8 @@ interface AlertMessageProps{
 }
 
 const AlertMessage: React.FC<AlertMessageProps> = ({ message }) => {
+    console.log(message)
+    console.log(typeof message)
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {

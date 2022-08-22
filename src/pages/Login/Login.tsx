@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import useDetectProvider from '../../hooks/useDetectProvider';
+import { toggleAlert } from '../../slices/alertMessage.slice';
 import { loginUser } from '../../slices/auth.slice';
 import { RootState, AppDispatch } from '../../store';
 import styles from "./Login.module.scss";
@@ -15,6 +16,8 @@ const Login: React.FC = () => {
     const preConditionCheck = () => {
         if(provider)
             dispatch(loginUser());
+        else
+            dispatch(toggleAlert("Install metamask and try again."))
     }
 
     useEffect(() => {
