@@ -17,13 +17,11 @@ export const loginUser = createAsyncThunk(
         try {
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
             const account = accounts[0];
-            const response = await AxiosClient.post('auth/login', {
+            const { data } = await AxiosClient.post('auth/login', {
                 publicAddress : account
             });
-            const { data } = response;
-            console.log(response);
             if(!data.success){
-                thunk.dispatch(toggleAlert(`${data.message} data fetch not success`))
+                thunk.dispatch(toggleAlert(data.message))
                 return thunk.rejectWithValue(data.message)
             }
             const signature = await signMessage(data.data.username, data.data.nonce);
@@ -34,12 +32,11 @@ export const loginUser = createAsyncThunk(
                 localStorage.setItem("refreshToken", userStatus.data.data.accessToken);
                 return account;
             }
-            thunk.dispatch(toggleAlert(`${userStatus.data.message} success`))
+            thunk.dispatch(toggleAlert(userStatus.data.message))
             return thunk.rejectWithValue(userStatus.data.message);
         } catch (error: any) {
-            console.log("error is here", error)
             const message = error.code === 4001 ? error.message : "Something unexpected happen.";
-            thunk.dispatch(toggleAlert(`${message} error is here`));
+            thunk.dispatch(toggleAlert(message));
             return thunk.rejectWithValue("error");
         }
     }
