@@ -17,9 +17,11 @@ export const loginUser = createAsyncThunk(
         try {
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
             const account = accounts[0];
-            const { data } = await AxiosClient.post('auth/login', {
+            const response = await AxiosClient.post('auth/login', {
                 publicAddress : account
             });
+            const { data } = response;
+            console.log(response);
             if(!data.success){
                 thunk.dispatch(toggleAlert(`${data.message} data fetch not success`))
                 return thunk.rejectWithValue(data.message)
