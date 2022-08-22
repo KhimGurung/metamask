@@ -11,8 +11,6 @@ interface AlertMessageProps{
 }
 
 const AlertMessage: React.FC<AlertMessageProps> = ({ message = "" }) => {
-    console.log(message)
-    console.log(typeof message)
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {

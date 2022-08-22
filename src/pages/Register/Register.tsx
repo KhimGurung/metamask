@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import useDetectProvider from '../../hooks/useDetectProvider';
+import { toggleAlert } from '../../slices/alertMessage.slice';
 import { registerUser } from '../../slices/user.slice';
 import { RootState, AppDispatch } from '../../store';
 import styles from "./Register.module.scss";
@@ -11,10 +12,18 @@ const Register: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const provider  = useDetectProvider();
     const { isLoading, isLoggedIn } = useSelector((state: RootState) => state.user);
+    const { showAlert } = useSelector((state: RootState) => state.alert);
+
 
     const preConditionCheck = () => {
         if(provider)
             dispatch(registerUser());
+        else
+            dispatch(toggleAlert("Install metamask and try again."));
+    }
+
+    const registerUser = () => {
+        alert("This is demo for the metamask login. So, this registration form is not functional.")
     }
 
     useEffect(() => {
@@ -49,7 +58,7 @@ const Register: React.FC = () => {
                         <Link to='/'>
                             <p>I already have an account.</p>
                         </Link>
-                        <button type='submit'>REGISTER</button>
+                        <button onClick={ registerUser } type='submit'>REGISTER</button>
                     </section>
                 </form>
             </div>
